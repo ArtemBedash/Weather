@@ -1,4 +1,4 @@
-import {useState} from 'react'
+cimport {useState} from 'react'
 import './App.css'
 import axios from "axios";
 import {API_KEY} from "./data/index.js";
