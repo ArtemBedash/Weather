@@ -1,7 +1,8 @@
-cimport {useState} from 'react'
+import {useState} from 'react'
 import './App.css'
 import axios from "axios";
 import {API_KEY} from "./data/index.js";
+import Map from "./components/Map.jsx";
 
 function App() {
     const [formData, setFormData] = useState({city: '', country: ''})
@@ -44,6 +45,7 @@ function App() {
 
         <div className='oswald-oscar'
              style={{display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center'}}>
+
             {loading && <p>Loading......</p>}
             {error && <p>{error}</p>}
             {data &&
@@ -51,7 +53,9 @@ function App() {
                     <p>City: {data.name}</p>
                     <p>Temperature: {data.main.temp}</p>
                     <p>Feels like: {data.main.feels_like}</p>
+                    <Map data={data}/>
                 </div>
+
             }
 
             <form onSubmit={(e) =>{
@@ -63,6 +67,7 @@ function App() {
                        onChange={(e) => handleInputChange('country',e.target.value)} required/>
                 <button type='submit'>Submit</button>
             </form>
+
 
         </div>
 
