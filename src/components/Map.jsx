@@ -1,15 +1,15 @@
 import React, {useEffect} from 'react';
 import L from 'leaflet';
 
-const Map = ({data}) => {
+const Map = ({coord,id}) => {
 // eslint-disable-next-line react/prop-types
-const {lat, lon} = data.coord;
+const {lat, lon} = coord;
     console.log(lat, lon);
 
 
     useEffect(() => {
-        if (!L.DomUtil.get('map')._leaflet_id) {  // Проверка инициализации
-            const map = L.map('map').setView([lat,
+        if (!L.DomUtil.get(id.toString())._leaflet_id) {  // Проверка инициализации
+            const map = L.map(id.toString()).setView([lat,
                 lon], 13);
             L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
                 maxZoom: 19,
@@ -22,7 +22,7 @@ const {lat, lon} = data.coord;
 
 
     return (
-        <div id="map" style={{ height: "50vh", width: "100%" }}>
+        <div id={id} style={{ height: "50vh", width: "100%" }}>
         </div>
     );
 

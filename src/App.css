@@ -25,7 +25,20 @@ button {
     cursor: pointer;
     transition: background-color 0.3s;
 }
-
+.flex-row{
+    display: flex;
+    width: 80%;
+}
 button:hover {
     background-color: #0056b3;
+}
+.oswald-oscar{
+
+    width: 100%;
+}
+
+.Cities{
+
+    padding: 20px;
+    width: 50%;
 }
